@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueHaven - Connexion</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>BlueHaven</h1>
+  </header>
+  <main>
+    <form action="php/login.php" method="post">
+      <h2>Se connecter</h2>
+      <label for="username">Nom d'utilisateur :</label>
+      <input type="text" id="username" name="username" placeholder="Votre nom d'utilisateur" required>
+
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+
+      <button type="submit" class="btn">Connexion</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2025 BlueHaven</p>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
