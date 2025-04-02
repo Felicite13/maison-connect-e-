@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 27 mars 2025 à 10:15
+-- Généré le : mer. 02 avr. 2025 à 11:58
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -24,6 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `actions`
+--
+
+DROP TABLE IF EXISTS `actions`;
+CREATE TABLE IF NOT EXISTS `actions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `object_id` int NOT NULL,
+  `action_type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `points` int DEFAULT '0',
+  `date_action` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `object_id` (`object_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `logs`
+--
+
+DROP TABLE IF EXISTS `logs`;
+CREATE TABLE IF NOT EXISTS `logs` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `object_id` int NOT NULL,
+  `log_type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `message` text COLLATE utf8mb4_general_ci,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `object_id` (`object_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `objects`
 --
 
@@ -35,7 +71,9 @@ CREATE TABLE IF NOT EXISTS `objects` (
   `status` enum('actif','inactif') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'actif',
   `connectivity` enum('Wi-Fi','Bluetooth','Zigbee','LoRa','Ethernet') COLLATE utf8mb4_general_ci NOT NULL,
   `last_interaction` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  `room_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_room` (`room_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
