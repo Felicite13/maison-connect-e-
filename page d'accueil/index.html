@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyHome - Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>MyHome</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="login.html">Se connecter</a></li>
+        <li><a class="btn" href="inscription.html">S'inscrire</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Bienvenue sur MyHome</h2>
+      <p>Découvrez notre solution informatique qui connecte votre maison pour plus de confort, de sécurité et d’économies.
+        
+      </p>
+      <a class="btn" href="inscription.html">Commencez ici</a>
+      <section class="visuel">
+        <img src="images/maison.jpg" alt="Maison connectée" class="image-demo">
+        <img src="images/maison2.jpg" alt="Maison connectée" class="image-demo">
+      </section>
+    </section>
+
+    <!-- Module Information pour Visiteur -->
+    <section class="module" id="information">
+
+      <h2>Actualités</h2>
+      <p>Nouvelle mise à jour : contrôle vocal disponible pour les volets roulants.</p>
+
+       <p>Offre spéciale : 20% de réduction sur les ampoules intelligentes Philips Hue jusqu’au 30 avril.</p>
+        
+      <p>Découvrez notre nouveau frigo connecté avec alertes de péremption.</p>
+
+      
+
+      <!-- Recherche d'informations -->
+      <div class="search">
+        <h3>Rechercher des objets</h3>
+        <p>Recherchez des objets ou des fonctionnalités spécifiques dans la maison intelligente :</p>
+        <form>
+          <label for="type">Type d'objet :</label>
+          <select id="type" name="type">
+            <option value="lumière">Lumière</option>
+            <option value="thermostat">Thermostat</option>
+            <option value="caméra">Caméra</option>
+          </select><br><br>
+
+         
+          <label for="localisation">Localisation :</label>
+          <select id="localisation" name="localisation">
+                <option value="salon">Salon</option>
+                <option value="cuisine">Cuisine</option>
+                <option value="entrée">Entrée</option>
+                <option value="chambre">Chambre</option>
+                <option value="">-- Toutes --</option>
+          </select><br><br>
+
+          <button type="button" onclick="rechercher()">Rechercher</button>
+        </form>
+        <div id="resultats"></div>
+      
+      </div>
+
+      <!-- Lien vers l'inscription -->
+      <div class="inscription">
+        <p>Vous souhaitez en savoir plus ? Créez un compte pour accéder à toutes les fonctionnalités.</p>
+        <a href="inscription.html" class="btn">S'inscrire</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MyHome. Tous droits réservés.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Exemple de données d'objets dans la maison intelligente
+    const objets = [
+      { nom: 'Lumière Salon', type: 'lumière', localisation: 'salon' },
+      { nom: 'Thermostat Cuisine', type: 'thermostat', localisation: 'cuisine' },
+      { nom: 'Caméra Sécurité', type: 'caméra', localisation: 'entrée' },
+      { nom: 'Lumière Chambre', type: 'lumière', localisation: 'chambre' }
+    ];
+
+    // Fonction de recherche
+    function rechercher() {
+      const type = document.getElementById('type').value;
+      const localisation = document.getElementById('localisation').value.toLowerCase();
+      const resultatsDiv = document.getElementById('resultats');
+
+      // Filtrer les objets en fonction des critères
+      const resultats = objets.filter(objet => {
+        return (objet.type === type || type === '') && (objet.localisation.toLowerCase().includes(localisation) || localisation === '');
+      });
+
+      // Affichage des résultats
+      if (resultats.length > 0) {
+        resultatsDiv.innerHTML = '<h3>Résultats de la recherche :</h3>';
+        resultats.forEach(objet => {
+          const p = document.createElement('p');
+          p.textContent = `${objet.nom} - Localisation: ${objet.localisation}`;
+          resultatsDiv.appendChild(p);
+        });
+      } else {
+        resultatsDiv.innerHTML = '<p>Aucun objet trouvé selon vos critères.</p>';
+      }
+    }
+  </script>
+</body>
+</html>

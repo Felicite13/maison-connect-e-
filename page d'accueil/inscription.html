@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MyHome - Inscription</title>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+
+ </head>
+ <body>
+   <header>
+     <h1>MyHome</h1>
+     <nav>
+       <ul>
+         <li><a href="index.html">Accueil</a></li>
+         <li><a href="login.html">Se connecter</a></li>
+       </ul>
+     </nav>
+   </header>
+   <main>
+     <form action="php/inscription.php" method="post">
+       <h2>Inscription</h2>
+       <label for="username">Nom d'utilisateur :</label>
+       <input type="text" id="username" name="username" placeholder="Votre nom d'utilisateur" required>
+       
+       <label for="email">Email :</label>
+       <input type="email" id="email" name="email" placeholder="Votre email" required>
+       
+       <label for="password">Mot de passe :</label>
+       <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+       
+       <button type="submit" class="btn">S'inscrire</button>
+     </form>
+   </main>
+   <footer>
+     <p>&copy; 2025 MyHome. Tous droits réservés.</p>
+   </footer>
+   <script src="js/script.js"></script>
+ </body>
+ </html>
