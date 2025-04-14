@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyHome - Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="font-[Montserrat] bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-600">MyHome</h1>
+    <nav>
+      <ul class="flex gap-4">
+        <li><a href="index.html" class="text-blue-500 hover:underline">Accueil</a></li>
+        <li><a href="login.html" class="text-blue-500 hover:underline">Se connecter</a></li>
+        <li><a href="inscription.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">S'inscrire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="p-6 max-w-6xl mx-auto">
+
+    <!-- Bienvenue -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2">Bienvenue sur MyHome</h2>
+      <p class="mb-4">Découvrez notre solution informatique qui connecte votre maison pour plus de confort, de sécurité et d’économies.</p>
+      <a href="inscription.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Commencez ici</a>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <img src="images/maison.jpg" alt="Maison connectée" class="rounded shadow-md">
+        <img src="images/maison2.jpg" alt="Maison connectée" class="rounded shadow-md">
+      </div>
+    </section>
+
+    <!-- Module Visiteur -->
+    <section class="bg-white rounded shadow p-6 mb-10" id="information">
+      <h2 class="text-xl font-bold mb-4">Actualités</h2>
+
+      <!-- Liste déroulante animée -->
+      <ul class="space-y-4">
+        <li class="transform hover:scale-105 transition-all duration-300 bg-gray-100 p-4 rounded shadow-md">
+          <h3 class="font-semibold text-lg">Nouvelle mise à jour</h3>
+          <p>Contrôle vocal pour les volets roulants.</p>
+        </li>
+        <li class="transform hover:scale-105 transition-all duration-300 bg-gray-100 p-4 rounded shadow-md">
+          <h3 class="font-semibold text-lg">Offre spéciale</h3>
+          <p>-20% sur les ampoules Philips Hue jusqu’au 30 avril.</p>
+        </li>
+        <li class="transform hover:scale-105 transition-all duration-300 bg-gray-100 p-4 rounded shadow-md">
+          <h3 class="font-semibold text-lg">Nouveau produit</h3>
+          <p>Découvrez notre nouveau frigo connecté avec alertes de péremption.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Recherche -->
+    <section class="bg-white rounded shadow p-6 mb-10">
+      <h3 class="text-lg font-semibold mb-2">Rechercher des objets et actions</h3>
+
+      <p class="mb-4">Testez en recherchant des objets ou des actions spécifiques dans la maison intelligente :</p>
+
+      <!-- Formulaire de recherche -->
+      <form class="space-y-4" id="searchForm">
+        <!-- Type d'objet -->
+        <div>
+          <label for="type" class="block font-medium">Type d'objet :</label>
+          <select id="type" name="type" class="w-full p-2 border rounded">
+            <option value="">-- Sélectionnez un type --</option>
+            <option value="lumière">Lumière</option>
+            <option value="thermostat">Thermostat</option>
+            <option value="caméra">Caméra</option>
+            <option value="volet">Volet Roulant</option>
+            <option value="frigo">Frigo</option>
+            <option value="télé">Télévision Connectée</option>
+          </select>
+        </div>
+
+        <!-- Localisation -->
+        <div>
+          <label for="localisation" class="block font-medium">Localisation :</label>
+          <select id="localisation" name="localisation" class="w-full p-2 border rounded">
+            <option value="">-- Toutes les localisations --</option>
+            <option value="salon">Salon</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="entrée">Entrée</option>
+            <option value="chambre">Chambre</option>
+            <option value="salle-de-bain">Salle de bain</option>
+            <option value="bureau">Bureau</option>
+          </select>
+        </div>
+
+        <!-- Action -->
+        <div>
+          <label for="action" class="block font-medium">Action :</label>
+          <select id="action" name="action" class="w-full p-2 border rounded">
+            <option value="">-- Sélectionnez une action --</option>
+            <option value="allumer">Allumer</option>
+            <option value="éteindre">Éteindre</option>
+            <option value="ajuster-temp">Ajuster la température</option>
+            <option value="ouvrir">Ouvrir</option>
+            <option value="fermer">Fermer</option>
+            <option value="réfrigérer">Réfrigérer</option>
+          </select>
+        </div>
+
+        <!-- Rechercher -->
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">Rechercher</button>
+      </form>
+
+      <!-- Résultats de la recherche -->
+      <div id="resultats" class="mt-6"></div>
+    </section>
+  </main>
+
+  <script>
+    // Liste des objets disponibles
+    const objets = [
+      { nom: 'Lumière Salon', type: 'lumière', localisation: 'salon', action: 'allumer' },
+      { nom: 'Thermostat Cuisine', type: 'thermostat', localisation: 'cuisine', action: 'ajuster-temp' },
+      { nom: 'Caméra Sécurité Entrée', type: 'caméra', localisation: 'entrée', action: 'éteindre' },
+      { nom: 'Volet Roulant Chambre', type: 'volet', localisation: 'chambre', action: 'fermer' },
+      { nom: 'Frigo Cuisine', type: 'frigo', localisation: 'cuisine', action: 'réfrigérer' },
+      { nom: 'Télévision Salon', type: 'télévision', localisation: 'salon', action: 'allumer' }
+    ];
+
+    // Fonction de recherche
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const type = document.getElementById('type').value.toLowerCase();
+      const localisation = document.getElementById('localisation').value.toLowerCase();
+      const action = document.getElementById('action').value.toLowerCase();
+      const resultatsDiv = document.getElementById('resultats');
+
+      // Filtrer les objets en fonction des critères
+      const resultats = objets.filter(objet => {
+        return (type === '' || objet.type.toLowerCase().includes(type)) &&
+               (localisation === '' || objet.localisation.toLowerCase().includes(localisation)) &&
+               (action === '' || objet.action.toLowerCase().includes(action));
+      });
+
+      // Afficher les résultats
+      if (resultats.length > 0) {
+        resultatsDiv.innerHTML = '';
+        resultats.forEach(objet => {
+          const p = document.createElement('p');
+          p.textContent = `${objet.nom} - Localisation: ${objet.localisation} - Action: ${objet.action}`;
+          resultatsDiv.appendChild(p);
+        });
+      } else {
+        resultatsDiv.innerHTML = '<p class="text-red-500">Aucun objet trouvé selon vos critères.</p>';
+      }
+    });
+  </script>
+<script src="js/main.js"></script>
+  <!-- Footer -->
+  <footer class="bg-white shadow-inner mt-10 p-4 text-center text-sm text-gray-500">
+    © 2025 MyHome - Tous droits réservés
+  </footer>
+
+</body>
+</html>
+
+

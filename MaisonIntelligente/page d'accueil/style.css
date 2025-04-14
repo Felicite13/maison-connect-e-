@@ -1,0 +1,282 @@
+/* 1. Réinitialisation de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff; /* Fond gris clair légèrement plus moderne */
+  color: #333;
+  line-height: 1.6;
+}
+/* 2. Header et navigation */
+header {
+  background-color: #003366; /* Suppression du fond bleu */
+  color: #f4f6fb; /* Couleur du texte en bleu foncé */
+  padding: 15px 20px; /* Ajustement du padding */
+  display: flex;
+  justify-content: space-between; /* Séparation des éléments à gauche et à droite */
+  align-items: center; /* Aligne les éléments verticalement */
+  box-shadow: none; /* Supprimer l'ombre */
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif; /* Titre en Montserrat */
+}
+
+nav {
+  display: flex;
+  gap: 2rem; /* Espace entre les liens */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Espacement entre les items */
+  align-items: center;
+}
+
+nav ul li a {
+  color: #fff; /* Couleur du texte */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+}
+
+nav ul li a:hover {
+  color: #00b8f4; /* Bleu turquoise pour l'interaction */
+}
+
+
+/* 3. Zone de contenu principal */
+main {
+  flex: 1;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #003366; /* Bleu sombre cohérent avec le header */
+  font-family: 'Montserrat', sans-serif; /* Titre en Montserrat */
+}
+
+section p {
+  font-size: 1.1rem;
+  color: #000000;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/*4. Boutons généraux */
+button, .btn {
+  padding: 12px 25px;
+  background-color:  #00b8f4; /* Bleu clair */
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold; /* Texte en gras */
+  border: none;
+  cursor: pointer;
+  text-decoration: none; /* Pas de soulignement */
+  font-family: 'Montserrat';
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .btn:hover {
+  background-color:  #00b8f4; /* Un bleu clair plus doux au survol */
+  transform: translateY(-2px); /* Légère élévation au survol */
+}
+
+
+/* 5. Formulaires */
+form {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 40px 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  max-width: 550px;
+  margin: 30px auto;
+  text-align: left;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #003366;
+  font-family: 'Montserrat', sans-serif; /* Titre en Montserrat */
+}
+.dark-section {
+  background-color: #111; /* ou la même couleur que celle des actualités */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #003366;
+}
+
+form input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #00b8f4;
+  box-shadow: 0 0 0 3px rgba(0, 184, 244, 0.2);
+}
+
+form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00b8f4;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  font-family: 'Montserrat';
+  margin-top: 10px; /* Ajouté pour un meilleur alignement */
+}
+
+form button:hover {
+  background-color: #0078a6;
+}
+
+
+/* 6. Tableau de bord : objets connectés */
+.objet {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.objet h3 {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #003366;
+  font-family: 'Montserrat', sans-serif; /* Titre en Montserrat */
+}
+
+.objet p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.objet button {
+  background-color: #00b8f4;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.objet button:hover {
+  background-color: #0078a6;
+  transform: translateY(-2px);
+}
+
+/* 7. Footer */
+footer {
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1rem;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+.visuel {
+  display: flex;
+  justify-content: space-between; /* Espacement égal entre les images */
+  gap: 20px;                      /* Espacement entre les images */
+  margin: 50px auto 20px;
+}
+
+.image-demo {
+  width: 48%;                     /* Chaque image prend environ la moitié de l'espace */
+  height: auto;                   /* Garder les proportions de l'image */
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+
+.search h3 {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #003366; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Style général du carrousel */
+.carousel-items {
+  display: flex;
+  overflow-x: hidden; /* Cache les éléments qui dépassent le conteneur */
+  gap: 16px; /* Espacement entre les éléments */
+  padding-bottom: 10px;
+}
+
+.carousel-item {
+  flex: 0 0 auto; /* Empêche les éléments de se redimensionner */
+  width: 80%; /* Largeur de chaque élément du carrousel */
+  height: 200px; /* Hauteur à ajuster selon ton contenu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6; /* Couleur de fond pour les éléments */
+  border-radius: 8px; /* Coins arrondis */
+}
+
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3182ce; /* Couleur de fond sur hover */
+}
+
+/* Style pour les boutons de navigation */
+button {
+  z-index: 1; /* Les boutons doivent être au-dessus du carrousel */
+}
